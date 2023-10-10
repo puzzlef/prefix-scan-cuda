@@ -2,71 +2,10 @@
 #include <utility>
 #include <vector>
 #include "_main.hxx"
+#include "scan.hxx"
 
 using std::vector;
 using std::move;
-
-
-
-
-#pragma region TYPES
-/**
- * Options for Inclusive/Exclusive Scan algorithm.
- */
-struct ScanOptions {
-  #pragma region DATA
-  /** Number of times to repeat the algorithm [1]. */
-  int repeat;
-  #pragma endregion
-
-
-  #pragma region CONSTRUCTORS
-  /**
-   * Define options for Inclusive/Exclusive Scan algorithm.
-   * @param repeat number of times to repeat the algorithm [1]
-   */
-  ScanOptions(int repeat=1) :
-  repeat(repeat) {}
-  #pragma endregion
-};
-#pragma endregion
-
-
-
-
-/**
- * Result of Inclusive/Exclusive Scan algorithm.
- * @tparam T value type
- */
-template <class T>
-struct ScanResult {
-  #pragma region DATA
-  /** Values obtained after performing Inclusive/Exclusive Scan. */
-  vector<T> values;
-  /** Time spent in milliseconds. */
-  float time;
-  #pragma endregion
-
-
-  #pragma region CONSTRUCTORS
-  /**
-   * Result of Inclusive/Exclusive Scan algorithm.
-   * @param values values obtained after performing Inclusive/Exclusive Scan
-   * @param time time spent in milliseconds
-   */
-  ScanResult(vector<T>&& values, float time=0) :
-  values(values), time(time) {}
-
-
-  /**
-   * Result of Inclusive/Exclusive Scan algorithm.
-   * @param values values obtained after performing Inclusive/Exclusive Scan
-   * @param time time spent in milliseconds
-   */
-  ScanResult(vector<T>& values, float time=0) :
-  values(move(values)), time(time) {}
-  #pragma endregion
-};
 
 
 

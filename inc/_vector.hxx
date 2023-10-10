@@ -1397,6 +1397,7 @@ inline TA inclusiveScanW(vector<TA>& a, const vector<TX>& x, TA acc=TA()) {
 /**
  * Perform inclusive scan of an array into another array in parallel.
  * @param a output array (updated)
+ * @param buf buffer of size MAX_THREADS (output)
  * @param x input array
  * @param N size of arrays
  * @param acc initial value
@@ -1436,6 +1437,7 @@ inline TA inclusiveScanOmpW(TA *a, TA *buf, const TX *x, size_t N, TA acc=TA()) 
 /**
  * Perform inclusive scan of a vector into another vector in parallel.
  * @param a output vector (updated)
+ * @param buf buffer of size MAX_THREADS (output)
  * @param x input vector
  * @param acc initial value
  * @returns final value
@@ -1487,6 +1489,7 @@ inline TA exclusiveScanW(vector<TA>& a, const vector<TX>& x, TA acc=TA()) {
 /**
  * Perform exclusive scan of an array into another array in parallel.
  * @param a output array (updated)
+ * @param buf buffer of size MAX_THREADS (output)
  * @param x input array
  * @param N size of arrays
  * @param acc initial value
@@ -1526,6 +1529,7 @@ inline TA exclusiveScanOmpW(TA *a, TA *buf, const TX *x, size_t N, TA acc=TA()) 
 /**
  * Perform exclusive scan of a vector into another vector in parallel.
  * @param a output vector (updated)
+ * @param buf buffer of size MAX_THREADS (output)
  * @param x input vector
  * @param acc initial value
  * @returns final value

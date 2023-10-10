@@ -43,15 +43,19 @@ void runExperiment() {
     for (size_t i=0; i<N; ++i)
       x[i] = i % 4;
     // Perform Inclusive Scan.
-    auto a1 = inclusiveScanCudaCub(x, {repeat});
-    glog(a1, "inclusiveScanCudaCub", N);
-    auto a2 = inclusiveScanCudaThrust(x, {repeat});
-    glog(a2, "inclusiveScanCudaThrust", N);
+    auto a1 = inclusiveScanOmp(x, {repeat});
+    glog(a1, "inclusiveScanOmp", N);
+    auto a2 = inclusiveScanCudaCub(x, {repeat});
+    glog(a2, "inclusiveScanCudaCub", N);
+    auto a3 = inclusiveScanCudaThrust(x, {repeat});
+    glog(a3, "inclusiveScanCudaThrust", N);
     // Perform Exclusive Scan.
-    auto b1 = exclusiveScanCudaCub(x, {repeat});
-    glog(b1, "exclusiveScanCudaCub", N);
-    auto b2 = exclusiveScanCudaThrust(x, {repeat});
-    glog(b2, "exclusiveScanCudaThrust", N);
+    auto b1 = exclusiveScanOmp(x, {repeat});
+    glog(b1, "exclusiveScanOmp", N);
+    auto b2 = exclusiveScanCudaCub(x, {repeat});
+    glog(b2, "exclusiveScanCudaCub", N);
+    auto b3 = exclusiveScanCudaThrust(x, {repeat});
+    glog(b3, "exclusiveScanCudaThrust", N);
   }
 }
 
