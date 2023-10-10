@@ -16,4 +16,5 @@
 #include "bfs.hxx"
 #include "batch.hxx"
 #ifdef CUDA
+#include "scanCuda.hxx"
 #endif
