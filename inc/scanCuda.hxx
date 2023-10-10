@@ -99,7 +99,7 @@ inline ScanResult<T> scanInvokeCuda(const vector<T>& x, const ScanOptions& o, FS
     });
   }, o.repeat);
   // Copy data to host.
-  TRY_CUDA( cudaMemcpy(a.data(), buftD, N*sizeof(T), cudaMemcpyDeviceToHost) );
+  TRY_CUDA( cudaMemcpy(a.data(), xD, N*sizeof(T), cudaMemcpyDeviceToHost) );
   // Free device memory.
   TRY_CUDA( cudaFree(xD) );
   TRY_CUDA( cudaFree(buftD) );
